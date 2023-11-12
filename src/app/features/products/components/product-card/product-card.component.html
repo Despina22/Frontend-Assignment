@@ -1,0 +1,24 @@
+<mat-card class="wrapper" *ngFor="let product of products">
+  <mat-card-header class="product-card-header">
+    <mat-card-title class="product-card-title" [matTooltip]="product.name">{{
+      product.name
+    }}</mat-card-title>
+  </mat-card-header>
+
+  <img
+    [src]="product.assets[0].preview"
+    [alt]="product.name"
+    class="product-img"
+  />
+
+  <mat-card-content class="card-content">
+    <p>
+      {{ product.description | truncate : 200 }}
+    </p>
+    <p>{{ product.createdAt | date : "yyyy" }}</p>
+  </mat-card-content>
+
+  <mat-card-actions class="btn-wrapper">
+    <button mat-button class="btn">See Details</button>
+  </mat-card-actions>
+</mat-card>
