@@ -7,9 +7,10 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { SharedModule } from '../shared/shared.module';
+import { ProductsComponent } from './products/components/products/products.component';
 
 @NgModule({
-  declarations: [ProductCardComponent],
+  declarations: [ProductCardComponent, ProductsComponent],
   imports: [
     CommonModule,
     MatProgressBarModule,
@@ -19,6 +20,6 @@ import { SharedModule } from '../shared/shared.module';
     MatTooltipModule,
     SharedModule,
   ],
-  exports: [ProductCardComponent],
+  exports: [ProductsComponent],
 })
 export class FeaturesModule {}

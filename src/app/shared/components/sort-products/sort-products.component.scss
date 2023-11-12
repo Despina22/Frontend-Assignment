@@ -1,0 +1,11 @@
+.wrapper {
+  max-width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .sort-field {
+    width: 400px;
+    margin: 40px 40px 10px;
+  }
+}
