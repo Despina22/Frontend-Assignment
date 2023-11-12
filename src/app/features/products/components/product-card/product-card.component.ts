@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/features/services/products.service';
 import { Product } from '../../models/product.interface';
+import { SortService } from 'src/app/shared/services/sort.service';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-product-card',
@@ -10,17 +12,25 @@ import { Product } from '../../models/product.interface';
 export class ProductCardComponent implements OnInit {
   products!: Product[];
 
-  constructor(private productsService: ProductsService) {}
+  constructor(
+    private productsService: ProductsService,
+    private sortService: SortService
+  ) {}
 
   ngOnInit(): void {
     this.getProducts();
+    this.updateProducts();
   }
 
-  getProducts() {
+  getProducts(): void {
     this.productsService.getAllProducts().subscribe((data: any) => {
-      console.log(data.products.items);
-
       this.products = data.products.items;
+    });
+  }
+
+  private updateProducts(): void {
+    this.sortService.sortOption$.subscribe(() => {
+      this.getProducts();
     });
   }
 }

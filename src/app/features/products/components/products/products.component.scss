@@ -2,6 +2,13 @@
   max-width: 80vw;
   margin: 0px auto 40px;
 
+  .select-inputs {
+    max-width: 80vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
   .products-header {
     margin: 10px 65px 10px;
     font-weight: 400;

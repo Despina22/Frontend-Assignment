@@ -1,14 +1,9 @@
 <div class="wrapper">
   <mat-form-field class="sort-field">
-    <mat-label>Select an option</mat-label>
-    <mat-select
-      disableRipple
-      [(ngModel)]="selectedSortOption"
-      (ngModelChange)="onSortChange()"
-    >
+    <mat-label>Toppings</mat-label>
+    <mat-select multiple>
       <mat-option value="name">Name</mat-option>
       <mat-option value="createdAt">Created At</mat-option>
-      <mat-option value="slug">Slug</mat-option>
     </mat-select>
   </mat-form-field>
 </div>

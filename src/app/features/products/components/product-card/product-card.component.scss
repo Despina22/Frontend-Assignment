@@ -12,6 +12,11 @@
     box-shadow: 15px 15px 10px gray;
     margin: 20px;
     border: 1px solid $border-light-color;
+    transition: all 0.4s;
+
+    &:hover {
+      transform: translateY(-10px);
+    }
 
     .product-card-header {
       display: flex;
@@ -34,6 +39,7 @@
       max-width: 100%;
       max-height: 250px;
       padding: 20px;
+      cursor: pointer;
     }
 
     .card-content {
