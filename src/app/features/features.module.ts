@@ -8,9 +8,16 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { SharedModule } from '../shared/shared.module';
 import { ProductsComponent } from './products/components/products/products.component';
+import { RouterModule } from '@angular/router';
+import { FeaturesRoutingModule } from './features-routing.module';
+import { ProductDetailsComponent } from './products/components/product-details/product-details.component';
 
 @NgModule({
-  declarations: [ProductCardComponent, ProductsComponent],
+  declarations: [
+    ProductCardComponent,
+    ProductsComponent,
+    ProductDetailsComponent,
+  ],
   imports: [
     CommonModule,
     MatProgressBarModule,
@@ -19,7 +26,9 @@ import { ProductsComponent } from './products/components/products/products.compo
     MatCardModule,
     MatTooltipModule,
     SharedModule,
+    RouterModule,
+    FeaturesRoutingModule,
   ],
-  exports: [ProductsComponent],
+  exports: [],
 })
 export class FeaturesModule {}

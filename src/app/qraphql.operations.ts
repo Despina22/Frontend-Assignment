@@ -18,4 +18,20 @@ const GET_PRODUCTS = gql`
   }
 `;
 
-export { GET_PRODUCTS };
+const GET_PRODUCT_DETAILS = gql`
+  query GetProductDetails($productId: ID!) {
+    product(id: $productId) {
+      id
+      name
+      description
+      createdAt
+      updatedAt
+      slug
+      assets {
+        preview
+      }
+    }
+  }
+`;
+
+export { GET_PRODUCTS, GET_PRODUCT_DETAILS };

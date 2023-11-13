@@ -1,11 +1,15 @@
 <mat-card class="wrapper" *ngFor="let product of products">
   <mat-card-header class="product-card-header">
-    <mat-card-title class="product-card-title" [matTooltip]="product.name">{{
-      product.name
-    }}</mat-card-title>
+    <mat-card-title
+      class="product-card-title"
+      [matTooltip]="product.name"
+      routerLink="product/{{ product.id }}"
+      >{{ product.name }}</mat-card-title
+    >
   </mat-card-header>
 
   <img
+    routerLink="product/{{ product.id }}"
     [src]="product.assets[0].preview"
     [alt]="product.name"
     class="product-img"
@@ -19,6 +23,8 @@
   </mat-card-content>
 
   <mat-card-actions class="btn-wrapper">
-    <button mat-button class="btn">See Details</button>
+    <button mat-button class="btn" routerLink="product/{{ product.id }}">
+      See Details
+    </button>
   </mat-card-actions>
 </mat-card>

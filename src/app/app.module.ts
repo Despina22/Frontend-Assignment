@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { FeaturesModule } from './features/features.module';
 import { GraphQLModule } from './qraphql.module';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,9 +16,10 @@ import { GraphQLModule } from './qraphql.module';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    AppRoutingModule,
     GraphQLModule,
     CoreModule,
-    FeaturesModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

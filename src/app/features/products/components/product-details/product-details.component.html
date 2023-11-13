@@ -1,0 +1,16 @@
+<div class="wrapper" *ngIf="productDetails">
+  <h1 class="product-header">{{ productDetails.name }}</h1>
+  <div class="product-container">
+    <img
+      [src]="productDetails.assets[0].preview"
+      [alt]="productDetails.name"
+      class="img"
+    />
+    <div class="product-content">
+      <p class="product-description">{{ productDetails.description }}</p>
+      <p class="product-created">Created At: {{ productDetails.createdAt }}</p>
+      <p class="product-updated">Updated At:{{ productDetails.updatedAt }}</p>
+      <button class="btn">Order</button>
+    </div>
+  </div>
+</div>
