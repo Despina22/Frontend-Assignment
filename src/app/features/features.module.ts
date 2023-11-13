@@ -11,12 +11,14 @@ import { ProductsComponent } from './products/components/products/products.compo
 import { RouterModule } from '@angular/router';
 import { FeaturesRoutingModule } from './features-routing.module';
 import { ProductDetailsComponent } from './products/components/product-details/product-details.component';
+import { OrderDetailsComponent } from './orders/components/order-details/order-details.component';
 
 @NgModule({
   declarations: [
     ProductCardComponent,
     ProductsComponent,
     ProductDetailsComponent,
+    OrderDetailsComponent,
   ],
   imports: [
     CommonModule,
