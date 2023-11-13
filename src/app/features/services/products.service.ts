@@ -4,6 +4,7 @@ import { Observable, map, switchMap, take } from 'rxjs';
 import { GET_PRODUCTS, GET_PRODUCT_DETAILS } from 'src/app/qraphql.operations';
 import { SortService } from 'src/app/shared/services/sort.service';
 import { Product } from '../products/models/product.interface';
+import { ProductDetails } from '../products/models/product-details';
 
 @Injectable({
   providedIn: 'root',
@@ -33,9 +34,9 @@ export class ProductsService {
     );
   }
 
-  getProductDetails(productId: string): Observable<Product> {
+  getProductDetails(productId: string): Observable<ProductDetails> {
     return this.apollo
-      .watchQuery<{ product: Product }>({
+      .watchQuery<{ product: ProductDetails }>({
         query: GET_PRODUCT_DETAILS,
         variables: { productId },
       })

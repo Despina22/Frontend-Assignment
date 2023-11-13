@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../models/product.interface';
-import { Subject, take } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { take } from 'rxjs';
+import { OrdersService } from 'src/app/features/services/orders.service';
 import { ProductsService } from 'src/app/features/services/products.service';
+import { ProductDetails } from '../../models/product-details';
 
 @Component({
   selector: 'app-product-details',
@@ -11,11 +12,14 @@ import { ProductsService } from 'src/app/features/services/products.service';
 })
 export class ProductDetailsComponent implements OnInit {
   productId!: string;
-  productDetails!: Product;
+  productDetails!: ProductDetails;
+  quantity!: number;
+  activeOrder: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private productService: ProductsService
+    private productService: ProductsService,
+    private orderService: OrdersService
   ) {}
 
   ngOnInit(): void {
@@ -29,7 +33,16 @@ export class ProductDetailsComponent implements OnInit {
       .pipe(take(1))
       .subscribe((product) => {
         this.productDetails = product;
-        console.log('asd', this.productDetails);
+      });
+  }
+
+  orderProduct(productVariantId: string) {
+    this.orderService
+      .addItemToOrder(productVariantId, this.quantity)
+      .pipe(take(1))
+      .subscribe((res) => {
+        console.log(res);
+        console.log(productVariantId);
       });
   }
 }

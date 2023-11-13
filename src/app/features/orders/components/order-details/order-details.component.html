@@ -1,1 +1,18 @@
-<p>order-details works!</p>
+<div *ngIf="activeOrder">
+  <h2>Order Details</h2>
+
+  <p>ID: {{ activeOrder.id }}</p>
+  <p>Created At: {{ activeOrder.createdAt }}</p>
+  <p>Updated At: {{ activeOrder.updatedAt }}</p>
+  <p>Total: {{ activeOrder.total }}</p>
+
+  <div *ngIf="activeOrder.lines && activeOrder.lines.length > 0">
+    <h3>Order Lines:</h3>
+    <ul>
+      <li *ngFor="let line of activeOrder.lines">
+        <p>Product Name: {{ line.productVariant.name }}</p>
+        <p>Price: {{ line.productVariant.price }}</p>
+      </li>
+    </ul>
+  </div>
+</div>
