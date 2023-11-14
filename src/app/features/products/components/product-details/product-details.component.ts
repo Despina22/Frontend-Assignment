@@ -15,9 +15,10 @@ import { MatDialog } from '@angular/material/dialog';
 export class ProductDetailsComponent implements OnInit {
   productId!: string;
   productDetails!: ProductDetails;
-  quantity!: number;
+  quantity: number = 1;
   activeOrder: any;
-  quantityMap: { [key: string]: number } = {};
+
+  selectedVariantId: string | undefined;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -38,13 +39,14 @@ export class ProductDetailsComponent implements OnInit {
       .pipe(take(1))
       .subscribe((product) => {
         this.productDetails = product;
-        this.productDetails.variants.forEach((variant) => {
-          this.quantityMap[variant.id] = 0;
-        });
       });
   }
 
-  orderProduct(productVariantId: string) {
+  onRadioChange(variantId: string) {
+    this.selectedVariantId = variantId;
+  }
+
+  orderProduct() {
     const confirmDialog = this.modal.open(ConfirmDialogComponent, {
       data: {
         message: 'Are you sure you want to add this item to active order?',
@@ -56,12 +58,10 @@ export class ProductDetailsComponent implements OnInit {
       .afterClosed()
       .pipe(take(1))
       .subscribe((res) => {
-        if (res) {
-          const quantity = this.quantityMap[productVariantId] || 0;
-
-          if (quantity > 0) {
+        if (res && this.selectedVariantId) {
+          if (this.quantity > 0) {
             this.orderService
-              .addItemToOrder(productVariantId, quantity)
+              .addItemToOrder(this.selectedVariantId, this.quantity)
               .pipe(take(1))
               .subscribe(() => {
                 this.router.navigate(['/order-details']);

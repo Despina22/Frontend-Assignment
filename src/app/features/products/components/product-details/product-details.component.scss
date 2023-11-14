@@ -8,6 +8,12 @@
   align-items: flex-start;
 
   .container {
+    .header {
+      margin: 10px 30px 20px;
+      font-size: 35px;
+      font-weight: 400;
+      letter-spacing: 0.7px;
+    }
     .img {
       width: 500px;
       margin: 10px 30px;
@@ -26,57 +32,21 @@
   .product-container {
     width: 60%;
 
-    .product-variant {
-      border: 1px solid $icons-color;
-      margin: 10px;
-      background-color: $border-light-color;
-      padding: 25px 25px 20px;
+    .btn {
+      font-size: 16px;
+      padding: 10px 30px;
+      background-color: #223532;
+      border: 1px solid #223532;
+      color: $white-color;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-weight: 400;
+      transition: all 0.4s;
+      cursor: pointer;
 
-      .product-header {
-        margin-bottom: 20px;
-        padding-bottom: 12px;
-        font-size: 22px;
-        font-weight: 500;
-        letter-spacing: 0.7px;
-        text-transform: uppercase;
-        border-bottom: 1px solid #232323;
-      }
-
-      .product-stock-details {
-        display: flex;
-        justify-content: space-between;
-        margin: 10px 0px 20px;
-
-        .quantity-input {
-          input {
-            padding: 8px 10px;
-            border-radius: 5px;
-            border: 1px solid #232323;
-            margin-left: 10px;
-          }
-
-          .error-message {
-            color: red;
-          }
-        }
-      }
-
-      .btn {
-        font-size: 16px;
-        padding: 10px 30px;
-        background-color: #223532;
-        border: 1px solid #223532;
-        color: $white-color;
-        text-transform: uppercase;
-        letter-spacing: 4px;
-        font-weight: 400;
-        transition: all 0.4s;
-        cursor: pointer;
-
-        &:hover {
-          background-color: $white-color;
-          color: #223532;
-        }
+      &:hover {
+        background-color: $white-color;
+        color: #223532;
       }
     }
   }

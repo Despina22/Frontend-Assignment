@@ -1,0 +1,37 @@
+@import "../../../../../assets/styles/variables";
+
+.product-variant {
+  border: 1px solid $icons-color;
+  margin: 10px;
+  background-color: $border-light-color;
+  padding: 25px 25px 20px;
+
+  .product-header {
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #232323;
+  }
+
+  .product-stock-details {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0px 20px;
+
+    .quantity-input {
+      input {
+        padding: 8px 10px;
+        border-radius: 5px;
+        border: 1px solid #232323;
+        margin-left: 10px;
+      }
+
+      .error-message {
+        color: red;
+      }
+    }
+  }
+}

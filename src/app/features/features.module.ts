@@ -14,6 +14,7 @@ import { ProductDetailsComponent } from './products/components/product-details/p
 import { OrderDetailsComponent } from './orders/components/order-details/order-details.component';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ProductVariantComponent } from './products/components/product-variant/product-variant.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     ProductsComponent,
     ProductDetailsComponent,
     OrderDetailsComponent,
+    ProductVariantComponent,
   ],
   imports: [
     CommonModule,

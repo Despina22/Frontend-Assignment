@@ -1,5 +1,6 @@
 <div class="wrapper" *ngIf="productDetails">
   <div class="container">
+    <h1 class="header">{{ productDetails.name }}</h1>
     <img
       [src]="productDetails.assets[0].preview"
       [alt]="productDetails.name"
@@ -8,42 +9,31 @@
     <p class="description">{{ productDetails.description }}</p>
   </div>
   <div class="product-container">
-    <div
-      *ngFor="let productDetailsVariant of productDetails.variants"
-      class="product-variant"
-    >
-      <p class="product-header">{{ productDetailsVariant.name }}</p>
-      <div>
-        <div class="product-stock-details">
-          <p class="product-price">
-            Price: {{ productDetailsVariant.price }} МКД
-          </p>
-          <p class="product-stock-level">
-            Stock Level: {{ productDetailsVariant.stockLevel }}
-          </p>
-        </div>
-        <div class="product-stock-details">
-          <div class="quantity-input">
-            <label for="quantity">Quantity:</label>
-            <input
-              type="number"
-              name="quantity"
-              [(ngModel)]="quantityMap[productDetailsVariant.id]"
-              placeholder="Quantity"
-            />
-            <div
-              *ngIf="quantityMap[productDetailsVariant.id] < 0"
-              class="error-message"
-            >
-              Quantity can't be negative.
-            </div>
-          </div>
-
-          <button class="btn" (click)="orderProduct(productDetailsVariant.id)">
-            Order
-          </button>
-        </div>
+    <div *ngFor="let productDetailsVariant of productDetails.variants">
+      <app-product-variant
+        [productDetailsVariant]="productDetailsVariant"
+        [quantityMap]="quantity"
+        (radioChange)="onRadioChange($event)"
+      ></app-product-variant>
+    </div>
+    <div class="quantity-input">
+      <label for="quantity">Quantity:</label>
+      <input
+        type="number"
+        name="quantity"
+        [(ngModel)]="quantity"
+        placeholder="Quantity"
+      />
+      <div *ngIf="quantity < 0" class="error-message">
+        Quantity can't be negative.
       </div>
     </div>
+    <button
+      class="btn"
+      [disabled]="selectedVariantId === undefined"
+      (click)="orderProduct()"
+    >
+      Order
+    </button>
   </div>
 </div>

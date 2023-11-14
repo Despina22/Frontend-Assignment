@@ -4,7 +4,7 @@ export interface ProductDetails extends Product {
   variants: ProductVariant[];
 }
 
-interface ProductVariant {
+export interface ProductVariant {
   id: string;
   price: number;
   name: string;

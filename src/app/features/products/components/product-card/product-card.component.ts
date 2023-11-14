@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/features/services/products.service';
-import { Product } from '../../models/product.interface';
 import { SortService } from 'src/app/shared/services/sort.service';
-import { take } from 'rxjs';
+import { Product } from '../../models/product.interface';
 
 @Component({
   selector: 'app-product-card',
