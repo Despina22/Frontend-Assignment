@@ -14,17 +14,29 @@
     >
       <p class="product-header">{{ productDetailsVariant.name }}</p>
       <div>
-        <p class="product-price">Price: {{ productDetailsVariant.price }}</p>
-        <p class="product-updated">
-          Stock Level:{{ productDetailsVariant.stockLevel }}
-        </p>
-        <div>
-          <label for="quantity">Quantity:</label>
-          <input type="number" [(ngModel)]="quantity" />
+        <div class="product-stock-details">
+          <p class="product-price">
+            Price: {{ productDetailsVariant.price }} МКД
+          </p>
+          <p class="product-stock-level">
+            Stock Level: {{ productDetailsVariant.stockLevel }}
+          </p>
         </div>
-        <button class="btn" (click)="orderProduct(productDetailsVariant.id)">
-          Order
-        </button>
+        <div class="product-stock-details">
+          <div class="quantity-input">
+            <label for="quantity">Quantity:</label>
+            <input
+              type="number"
+              name="quantity"
+              [(ngModel)]="quantityMap[productDetailsVariant.id]"
+              placeholder="Quantity"
+            />
+          </div>
+
+          <button class="btn" (click)="orderProduct(productDetailsVariant.id)">
+            Order
+          </button>
+        </div>
       </div>
     </div>
   </div>

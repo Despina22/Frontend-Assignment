@@ -15,6 +15,7 @@ export class ProductDetailsComponent implements OnInit {
   productDetails!: ProductDetails;
   quantity!: number;
   activeOrder: any;
+  quantityMap: { [key: string]: number } = {};
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -33,12 +34,16 @@ export class ProductDetailsComponent implements OnInit {
       .pipe(take(1))
       .subscribe((product) => {
         this.productDetails = product;
+        this.productDetails.variants.forEach((variant) => {
+          this.quantityMap[variant.id] = 0;
+        });
       });
   }
 
   orderProduct(productVariantId: string) {
+    const quantity = this.quantityMap[productVariantId] || 0;
     this.orderService
-      .addItemToOrder(productVariantId, this.quantity)
+      .addItemToOrder(productVariantId, quantity)
       .pipe(take(1))
       .subscribe((res) => {
         console.log(res);
