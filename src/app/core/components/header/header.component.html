@@ -1,13 +1,21 @@
 <p>
   <mat-toolbar class="wrapper">
-    <span class="header-title" routerLink="/">My App</span>
+    <img
+      src="../../../../assets/images/logo.jpg"
+      alt="logo"
+      class="img"
+      routerLink="/"
+    />
     <span class="example-spacer"></span>
-    <button
-      class="example-icon favorite-icon"
+    <a
+      class="btn"
       aria-label="Example icon-button with heart icon"
       routerLink="/order-details"
     >
       Order details
-    </button>
+    </a>
+    <mat-icon class="icon" matBadgeColor="accent" routerLink="/order-details">
+      local_grocery_store</mat-icon
+    >
   </mat-toolbar>
 </p>

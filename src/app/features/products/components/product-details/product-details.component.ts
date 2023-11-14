@@ -59,7 +59,7 @@ export class ProductDetailsComponent implements OnInit {
         if (res) {
           const quantity = this.quantityMap[productVariantId] || 0;
 
-          if (quantity >= 0) {
+          if (quantity > 0) {
             this.orderService
               .addItemToOrder(productVariantId, quantity)
               .pipe(take(1))

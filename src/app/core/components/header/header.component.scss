@@ -1,11 +1,33 @@
-.wrapper {
-  padding: 0 5vw;
+@import "../../../../assets/styles/variables";
 
-  .header-title {
-    font-size: 25px;
+.wrapper {
+  padding: 0 10vw;
+
+  .img {
+    max-width: 180px;
     cursor: pointer;
   }
   .example-spacer {
     flex: 1 1 auto;
+  }
+
+  .btn {
+    text-decoration: none;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 15px;
+    color: $black-color;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .icon {
+    cursor: pointer;
   }
 }
