@@ -15,6 +15,8 @@ import { OrderDetailsComponent } from './orders/components/order-details/order-d
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ProductVariantComponent } from './products/components/product-variant/product-variant.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -32,8 +34,10 @@ import { ProductVariantComponent } from './products/components/product-variant/p
     MatCardModule,
     MatTooltipModule,
     MatDialogModule,
+    MatIconModule,
     SharedModule,
     RouterModule,
+    MatRadioModule,
     FeaturesRoutingModule,
     FormsModule,
   ],

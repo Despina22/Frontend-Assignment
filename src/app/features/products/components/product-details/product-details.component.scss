@@ -32,22 +32,51 @@
   .product-container {
     width: 60%;
 
-    .btn {
-      font-size: 16px;
-      padding: 10px 30px;
-      background-color: #223532;
-      border: 1px solid #223532;
-      color: $white-color;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-weight: 400;
-      transition: all 0.4s;
-      cursor: pointer;
+    .quantity-input {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-right: 10px;
 
-      &:hover {
-        background-color: $white-color;
-        color: #223532;
+      input {
+        padding: 8px 10px;
+        border-radius: 5px;
+        border: 1px solid #232323;
+        margin: 0px 15px;
+      }
+
+      .error-message {
+        color: red;
+      }
+      .btn {
+        font-size: 16px;
+        padding: 10px 30px;
+        border: 1px solid #223532;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-weight: 400;
+        transition: all 0.4s;
+        cursor: pointer;
       }
     }
+  }
+}
+
+.error-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-size: 45px;
+  height: 50vh;
+  color: #232323;
+
+  .error-icon {
+    font-size: 60px;
+    margin-bottom: 30px;
+  }
+  ::ng-deep .mat-icon {
+    height: 55px;
+    width: 55px;
   }
 }

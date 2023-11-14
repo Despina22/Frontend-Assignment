@@ -1,4 +1,4 @@
-<div class="wrapper" *ngIf="productDetails">
+<div class="wrapper" *ngIf="productDetails; else productNotFound">
   <div class="container">
     <h1 class="header">{{ productDetails.name }}</h1>
     <img
@@ -27,13 +27,20 @@
       <div *ngIf="quantity < 0" class="error-message">
         Quantity can't be negative.
       </div>
+      <button
+        class="btn"
+        [disabled]="selectedVariantId === undefined"
+        (click)="orderProduct()"
+      >
+        Order
+      </button>
     </div>
-    <button
-      class="btn"
-      [disabled]="selectedVariantId === undefined"
-      (click)="orderProduct()"
-    >
-      Order
-    </button>
   </div>
 </div>
+
+<ng-template #productNotFound>
+  <div class="error-wrapper">
+    <mat-icon class="error-icon">warning</mat-icon>
+    <p>Product is not found!!!</p>
+  </div>
+</ng-template>
