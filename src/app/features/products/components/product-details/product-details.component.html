@@ -23,13 +23,14 @@
         name="quantity"
         [(ngModel)]="quantity"
         placeholder="Quantity"
+        min="1"
       />
       <div *ngIf="quantity < 0" class="error-message">
         Quantity can't be negative.
       </div>
       <button
         class="btn"
-        [disabled]="selectedVariantId === undefined"
+        [disabled]="selectedVariantId === undefined || quantity <= 0"
         (click)="orderProduct()"
       >
         Order

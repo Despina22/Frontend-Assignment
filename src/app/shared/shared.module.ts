@@ -8,6 +8,8 @@ import { FilterProductsComponent } from './components/filter-products/filter-pro
 import { FormsModule } from '@angular/forms';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     FormsModule,
     MatButtonModule,
+    MatInputModule,
+    MatIconModule,
   ],
   exports: [SortProductsComponent, TruncatePipe, FilterProductsComponent],
 })

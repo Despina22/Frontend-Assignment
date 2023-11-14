@@ -1,9 +1,7 @@
 <div class="wrapper">
   <mat-form-field class="sort-field">
-    <mat-label>Filter By</mat-label>
-    <mat-select multiple>
-      <mat-option value="name">Name</mat-option>
-      <mat-option value="createdAt">Created At</mat-option>
-    </mat-select>
+    <mat-label>Filter By Name</mat-label>
+    <input type="search" matInput (input)="onNameFilterChange($event)" />
+    <mat-icon matSuffix>mode_edit</mat-icon>
   </mat-form-field>
 </div>
