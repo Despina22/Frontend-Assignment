@@ -31,6 +31,12 @@
               [(ngModel)]="quantityMap[productDetailsVariant.id]"
               placeholder="Quantity"
             />
+            <div
+              *ngIf="quantityMap[productDetailsVariant.id] < 0"
+              class="error-message"
+            >
+              Quantity can't be negative.
+            </div>
           </div>
 
           <button class="btn" (click)="orderProduct(productDetailsVariant.id)">

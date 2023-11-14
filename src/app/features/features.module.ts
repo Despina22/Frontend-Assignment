@@ -13,6 +13,7 @@ import { FeaturesRoutingModule } from './features-routing.module';
 import { ProductDetailsComponent } from './products/components/product-details/product-details.component';
 import { OrderDetailsComponent } from './orders/components/order-details/order-details.component';
 import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FormsModule } from '@angular/forms';
     MatDividerModule,
     MatCardModule,
     MatTooltipModule,
+    MatDialogModule,
     SharedModule,
     RouterModule,
     FeaturesRoutingModule,
