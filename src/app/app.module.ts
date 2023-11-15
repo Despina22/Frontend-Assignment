@@ -9,6 +9,7 @@ import { FeaturesModule } from './features/features.module';
 import { GraphQLModule } from './qraphql.module';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
     GraphQLModule,
     CoreModule,
     RouterModule,
+    StoreModule.forRoot({}, {}),
   ],
   providers: [],
   bootstrap: [AppComponent],

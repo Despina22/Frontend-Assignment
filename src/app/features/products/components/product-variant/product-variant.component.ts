@@ -8,7 +8,7 @@ import { ProductVariant } from '../../models/product-details';
 })
 export class ProductVariantComponent {
   @Input() productDetailsVariant?: ProductVariant;
-  @Input() quantityMap: any;
+  @Input() quantityMap?: number;
   @Output() radioChange = new EventEmitter<string>();
 
   radioGroupName = 'productVariants';
