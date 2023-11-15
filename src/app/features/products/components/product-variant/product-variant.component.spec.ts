@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { ProductVariantComponent } from './product-variant.component';
 
@@ -8,8 +9,10 @@ describe('ProductVariantComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ProductVariantComponent]
+      declarations: [ProductVariantComponent],
+      imports: [MatRadioModule],
     });
+
     fixture = TestBed.createComponent(ProductVariantComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

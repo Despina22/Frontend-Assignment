@@ -8,8 +8,9 @@
   <p>Created At: {{ activeOrder.createdAt | date : "EEEE, MMMM d, y" }}</p>
   <p>Updated At: {{ activeOrder.updatedAt | date : "EEEE, MMMM d, y" }}</p>
   <p>Total: {{ activeOrder.total | number }} МКД</p>
+  <p>Active: {{ activeOrder.active }}</p>
 
-  <div *ngIf="activeOrder.lines && activeOrder.lines.length > 0">
+  <div>
     <h3>Product Details:</h3>
     <ul>
       <li *ngFor="let line of activeOrder.lines">

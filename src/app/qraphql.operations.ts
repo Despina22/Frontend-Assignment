@@ -71,7 +71,6 @@ const GET_ACTIVE_ORDER = gql`
       updatedAt
       active
       total
-      customFields
     }
   }
 `;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActiveOrderService } from 'src/app/features/services/active-order.service';
-import { OrdersService } from 'src/app/features/services/orders.service';
+import { ActiveOrder } from '../../models/active-order.interface';
 
 @Component({
   selector: 'app-order-details',
@@ -8,7 +8,7 @@ import { OrdersService } from 'src/app/features/services/orders.service';
   styleUrls: ['./order-details.component.scss'],
 })
 export class OrderDetailsComponent implements OnInit {
-  activeOrder: any;
+  activeOrder!: ActiveOrder;
 
   constructor(private activeOrderService: ActiveOrderService) {}
 
@@ -19,7 +19,6 @@ export class OrderDetailsComponent implements OnInit {
   getActiveOrder() {
     this.activeOrderService.activeOrder$.subscribe((order) => {
       this.activeOrder = order;
-      console.log('Active order:', this.activeOrder);
     });
   }
 }

@@ -1,13 +1,13 @@
 <div class="product-variant-wrapper">
-  <p class="product-header">{{ productDetailsVariant.name }}</p>
+  <p class="product-header">{{ productDetailsVariant?.name }}</p>
 
   <div>
     <div class="product-stock-details">
       <p class="product-price">
-        Price: {{ productDetailsVariant.price | number }} МКД
+        Price: {{ productDetailsVariant?.price | number }} МКД
       </p>
       <p class="product-stock-level">
-        Stock Level: {{ productDetailsVariant.stockLevel }}
+        Stock Level: {{ productDetailsVariant?.stockLevel }}
       </p>
     </div>
     <div class="product-stock-details">
@@ -16,7 +16,7 @@
         (change)="onRadioChange()"
         [name]="radioGroupName"
       >
-        <mat-radio-button [value]="productDetailsVariant.id"
+        <mat-radio-button [value]="productDetailsVariant?.id"
           >Add item to active order</mat-radio-button
         >
       </mat-radio-group>

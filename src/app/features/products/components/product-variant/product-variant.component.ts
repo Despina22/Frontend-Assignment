@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ProductDetails, ProductVariant } from '../../models/product-details';
-import { ProductsService } from 'src/app/features/services/products.service';
+import { ProductVariant } from '../../models/product-details';
 
 @Component({
   selector: 'app-product-variant',
@@ -8,13 +7,12 @@ import { ProductsService } from 'src/app/features/services/products.service';
   styleUrls: ['./product-variant.component.scss'],
 })
 export class ProductVariantComponent {
-  @Input() productDetailsVariant: any;
-  @Input() quantityMap: any;
+  @Input() productDetailsVariant?: ProductVariant;
   @Output() radioChange = new EventEmitter<string>();
 
   radioGroupName = 'productVariants';
 
   onRadioChange() {
-    this.radioChange.emit(this.productDetailsVariant.id);
+    this.radioChange.emit(this.productDetailsVariant?.id);
   }
 }
