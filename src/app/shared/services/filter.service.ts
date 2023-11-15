@@ -12,8 +12,6 @@ export class FilterService {
   }
 
   getNameFilter(): BehaviorSubject<string> {
-    console.log(this.nameFilterSubject);
-
     return this.nameFilterSubject;
   }
 }

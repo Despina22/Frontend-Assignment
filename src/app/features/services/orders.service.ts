@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Apollo } from 'apollo-angular';
+import { Apollo, MutationResult } from 'apollo-angular';
 import { Observable, map, switchMap, take, tap } from 'rxjs';
 import {
   ADD_ITEM_TO_ORDER,
   GET_ACTIVE_ORDER,
 } from 'src/app/qraphql.operations';
 import { ActiveOrderService } from './active-order.service';
+import { ApolloQueryResult } from '@apollo/client/core';
 
 interface AddItemToOrderResponse {
   addItemToOrder: any; // Smeni go da ne bidi any
@@ -20,7 +21,10 @@ export class OrdersService {
     private activeOrderService: ActiveOrderService
   ) {}
 
-  addItemToOrder(productVariantId: string, quantity: number) {
+  addItemToOrder(
+    productVariantId: string,
+    quantity: number
+  ): Observable<MutationResult<AddItemToOrderResponse>> {
     return this.apollo
       .mutate<AddItemToOrderResponse>({
         mutation: ADD_ITEM_TO_ORDER,
@@ -36,7 +40,7 @@ export class OrdersService {
       );
   }
 
-  getActiveOrder(): Observable<any> {
+  getActiveOrder(): Observable<ApolloQueryResult<any>> {
     return this.apollo
       .watchQuery<any>({
         query: GET_ACTIVE_ORDER,

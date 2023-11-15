@@ -1,0 +1,70 @@
+@import "../../../../../assets/styles/variables";
+
+.order-details-container {
+  max-width: 70vw;
+  background-color: $gray-light;
+  border: 1px solid $icons-color;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 40px auto;
+
+  h2 {
+    color: #232323;
+    border-bottom: 2px solid $icons-color;
+    padding-bottom: 10px;
+  }
+
+  h3 {
+    color: #555;
+  }
+
+  p {
+    margin: 5px 0;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
+
+    .product-details {
+      margin-left: 20px;
+      font-weight: bold;
+      color: #555;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.error-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-size: 45px;
+  height: 50vh;
+  color: #232323;
+
+  .error-icon {
+    font-size: 60px;
+    margin-bottom: 30px;
+  }
+  ::ng-deep .mat-icon {
+    height: 55px;
+    width: 55px;
+  }
+}

@@ -1,18 +1,32 @@
-<div *ngIf="activeOrder">
+<div
+  class="order-details-container"
+  *ngIf="activeOrder; else activeOrderNotFound"
+>
   <h2>Order Details</h2>
 
-  <p>ID: {{ activeOrder.id }}</p>
-  <p>Created At: {{ activeOrder.createdAt }}</p>
-  <p>Updated At: {{ activeOrder.updatedAt }}</p>
-  <p>Total: {{ activeOrder.total }}</p>
+  <p class="order-id">ID: {{ activeOrder.id }}</p>
+  <p>Created At: {{ activeOrder.createdAt | date : "EEEE, MMMM d, y" }}</p>
+  <p>Updated At: {{ activeOrder.updatedAt | date : "EEEE, MMMM d, y" }}</p>
+  <p>Total: {{ activeOrder.total | number }} МКД</p>
 
   <div *ngIf="activeOrder.lines && activeOrder.lines.length > 0">
-    <h3>Order Lines:</h3>
+    <h3>Product Details:</h3>
     <ul>
       <li *ngFor="let line of activeOrder.lines">
-        <p>Product Name: {{ line.productVariant.name }}</p>
-        <p>Price: {{ line.productVariant.price }}</p>
+        <p class="product-details">
+          Product Name: {{ line.productVariant.name }}
+        </p>
+        <p class="product-details">
+          Price: {{ line.productVariant.price | number }} МКД
+        </p>
       </li>
     </ul>
   </div>
 </div>
+
+<ng-template #activeOrderNotFound>
+  <div class="error-wrapper">
+    <mat-icon class="error-icon">warning</mat-icon>
+    <p>You don't have active order.</p>
+  </div>
+</ng-template>

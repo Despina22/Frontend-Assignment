@@ -11,42 +11,11 @@ import { Product } from '../products/models/product.interface';
   providedIn: 'root',
 })
 export class ProductsService {
-  private unsubscribe$: Subject<void> = new Subject<void>();
   constructor(
     private apollo: Apollo,
     private sortService: SortService,
     private filterService: FilterService
   ) {}
-
-  // getAllProducts(): Observable<Product[]> {
-  //   return combineLatest([
-  //     this.sortService.sortOption$,
-  //     this.filterService.getNameFilter(),
-  //   ]).pipe(
-  //     switchMap(
-  //       ([sortOption, filterName]) =>
-  //         this.apollo.watchQuery<Product[]>({
-  //           query: GET_PRODUCTS,
-  //           variables: {
-  //             options: {
-  //               sort: {
-  //                 [sortOption]: 'ASC',
-  //               },
-  //               take: 8,
-  //               skip: 0,
-  //               filter: {
-  //                 name: {
-  //                   contains: filterName,
-  //                 },
-  //               },
-  //             },
-  //           },
-  //         }).valueChanges
-  //     ),
-  //     take(1),
-  //     map((products) => products.data)
-  //   );
-  // }
 
   getAllProducts(): Observable<Product[]> {
     return this.filterService.getNameFilter().pipe(

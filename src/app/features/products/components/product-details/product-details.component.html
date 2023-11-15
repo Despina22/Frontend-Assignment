@@ -1,4 +1,4 @@
-<div class="wrapper" *ngIf="productDetails; else productNotFound">
+<div class="wrapper" *ngIf="productDetails">
   <div class="container">
     <h1 class="header">{{ productDetails.name }}</h1>
     <img
@@ -38,10 +38,3 @@
     </div>
   </div>
 </div>
-
-<ng-template #productNotFound>
-  <div class="error-wrapper">
-    <mat-icon class="error-icon">warning</mat-icon>
-    <p>Product is not found!!!</p>
-  </div>
-</ng-template>

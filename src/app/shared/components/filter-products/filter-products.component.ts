@@ -12,6 +12,5 @@ export class FilterProductsComponent {
   onNameFilterChange(event: any): void {
     const nameFilter = event.target.value;
     this.filterService.setNameFilter(nameFilter);
-    console.log(nameFilter);
   }
 }

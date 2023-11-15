@@ -61,22 +61,3 @@
     }
   }
 }
-
-.error-wrapper {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  font-size: 45px;
-  height: 50vh;
-  color: #232323;
-
-  .error-icon {
-    font-size: 60px;
-    margin-bottom: 30px;
-  }
-  ::ng-deep .mat-icon {
-    height: 55px;
-    width: 55px;
-  }
-}

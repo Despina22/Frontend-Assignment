@@ -3,7 +3,9 @@
 
   <div>
     <div class="product-stock-details">
-      <p class="product-price">Price: {{ productDetailsVariant.price }} МКД</p>
+      <p class="product-price">
+        Price: {{ productDetailsVariant.price | number }} МКД
+      </p>
       <p class="product-stock-level">
         Stock Level: {{ productDetailsVariant.stockLevel }}
       </p>
