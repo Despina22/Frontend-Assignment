@@ -11,7 +11,7 @@ export class SortProductsComponent {
 
   constructor(private sortService: SortService) {}
 
-  onSortChange() {
+  onSortChange(): void {
     this.sortService.setSortOption(this.selectedSortOption);
   }
 }

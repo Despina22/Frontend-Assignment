@@ -10,10 +10,10 @@ import { RouterModule } from '@angular/router';
   declarations: [HeaderComponent],
   imports: [
     CommonModule,
+    RouterModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    RouterModule,
   ],
   exports: [HeaderComponent],
 })

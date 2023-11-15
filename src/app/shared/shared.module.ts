@@ -11,13 +11,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 
+const COMPONENTS = [
+  SortProductsComponent,
+  TruncatePipe,
+  FilterProductsComponent,
+];
 @NgModule({
-  declarations: [
-    SortProductsComponent,
-    TruncatePipe,
-    FilterProductsComponent,
-    ConfirmDialogComponent,
-  ],
+  declarations: [...COMPONENTS, ConfirmDialogComponent],
   imports: [
     CommonModule,
     MatSelectModule,
@@ -27,6 +27,6 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatIconModule,
   ],
-  exports: [SortProductsComponent, TruncatePipe, FilterProductsComponent],
+  exports: [...COMPONENTS],
 })
 export class SharedModule {}

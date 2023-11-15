@@ -13,7 +13,7 @@ export class ProductVariantComponent {
 
   radioGroupName = 'productVariants';
 
-  onRadioChange() {
+  onRadioChange(): void {
     this.radioChange.emit(this.productDetailsVariant?.id);
   }
 }

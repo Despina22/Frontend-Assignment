@@ -5,7 +5,8 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class FilterService {
-  private nameFilterSubject = new BehaviorSubject<string>('');
+  private nameFilterSubject: BehaviorSubject<string> =
+    new BehaviorSubject<string>('');
 
   setNameFilter(name: string): void {
     this.nameFilterSubject.next(name);

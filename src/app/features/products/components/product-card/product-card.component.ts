@@ -21,7 +21,7 @@ export class ProductCardComponent implements OnInit {
     this.updateProducts();
   }
 
-  getProducts(): void {
+  private getProducts(): void {
     this.productsService.getAllProducts().subscribe((data: any) => {
       this.products = data.products.items;
     });

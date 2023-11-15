@@ -9,8 +9,8 @@ import { FilterService } from '../../services/filter.service';
 export class FilterProductsComponent {
   constructor(private filterService: FilterService) {}
 
-  onNameFilterChange(event: any): void {
-    const nameFilter = event.target.value;
+  onNameFilterChange(event: Event): void {
+    const nameFilter = (event.target as HTMLInputElement).value;
     this.filterService.setNameFilter(nameFilter);
   }
 }

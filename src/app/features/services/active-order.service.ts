@@ -8,9 +8,7 @@ export class ActiveOrderService {
   private activeOrderSubject = new BehaviorSubject<any>(null);
   activeOrder$ = this.activeOrderSubject.asObservable();
 
-  setActiveOrder(order: any) {
+  setActiveOrder(order: any): void {
     this.activeOrderSubject.next(order);
   }
-
-  constructor() {}
 }

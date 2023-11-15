@@ -9,7 +9,7 @@ export class SortService {
     new BehaviorSubject<string>('id');
   sortOption$: Observable<string> = this.sortOptionSubject.asObservable();
 
-  setSortOption(option: string) {
+  setSortOption(option: string): void {
     this.sortOptionSubject.next(option);
   }
 }

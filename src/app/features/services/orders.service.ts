@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
+import { ApolloQueryResult } from '@apollo/client/core';
 import { Apollo, MutationResult } from 'apollo-angular';
-import { Observable, map, switchMap, take, tap } from 'rxjs';
+import { Observable, take, tap } from 'rxjs';
 import {
   ADD_ITEM_TO_ORDER,
   GET_ACTIVE_ORDER,
 } from 'src/app/qraphql.operations';
+import { Product } from '../products/models/product.interface';
 import { ActiveOrderService } from './active-order.service';
-import { ApolloQueryResult } from '@apollo/client/core';
+import { ActiveOrder } from '../orders/models/active-order.interface';
 
 interface AddItemToOrderResponse {
-  addItemToOrder: any; // Smeni go da ne bidi any
+  addItemToOrder: Product;
 }
 
 @Injectable({
@@ -40,9 +42,9 @@ export class OrdersService {
       );
   }
 
-  getActiveOrder(): Observable<ApolloQueryResult<any>> {
+  getActiveOrder(): Observable<ApolloQueryResult<ActiveOrder>> {
     return this.apollo
-      .watchQuery<any>({
+      .watchQuery<ActiveOrder>({
         query: GET_ACTIVE_ORDER,
       })
       .valueChanges.pipe(

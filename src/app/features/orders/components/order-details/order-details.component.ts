@@ -16,7 +16,7 @@ export class OrderDetailsComponent implements OnInit {
     this.getActiveOrder();
   }
 
-  getActiveOrder() {
+  private getActiveOrder(): void {
     this.activeOrderService.activeOrder$.subscribe((order) => {
       this.activeOrder = order;
     });
