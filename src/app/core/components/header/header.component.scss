@@ -31,3 +31,11 @@
     cursor: pointer;
   }
 }
+
+@media only screen and (max-width: 576px) {
+  .wrapper {
+    .img {
+      display: none;
+    }
+  }
+}
