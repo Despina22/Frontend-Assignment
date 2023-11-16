@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject, debounceTime, take, takeUntil } from 'rxjs';
 import { ProductsService } from 'src/app/features/services/products.service';
 import { SortService } from 'src/app/shared/services/sort.service';
 import { Product, ProductList } from '../../models/product.interface';
@@ -17,6 +17,8 @@ export class ProductsComponent {
   page!: number;
 
   private unsubscribe$: Subject<void> = new Subject<void>();
+  private nameFilterValue: string = '';
+  private sortName: string = 'id';
 
   constructor(
     private productsService: ProductsService,
@@ -28,6 +30,25 @@ export class ProductsComponent {
     this.filterService.clearNameFilter();
     this.getProducts();
     this.updateProducts();
+
+    this.filterService
+      .getNameFilter()
+      .pipe(debounceTime(500), takeUntil(this.unsubscribe$))
+      .subscribe((value) => {
+        this.handleFilterChange(value);
+      });
+
+    this.sortService.sortOption$
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((value) => {
+        this.sortName = value;
+      });
+  }
+
+  handleFilterChange(value: string) {
+    this.nameFilterValue = value;
+    this.page = 0;
+    this.getProducts();
   }
 
   onPageChange(pageIndex: number) {
@@ -36,9 +57,13 @@ export class ProductsComponent {
   }
 
   getProducts(): void {
-    console.log('bbb');
     this.productsService
-      .getAllProducts(this.itemsPerPage, this.page)
+      .getAllProducts(
+        this.itemsPerPage,
+        this.page,
+        this.nameFilterValue,
+        this.sortName
+      )
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((data: any) => {
         this.products = data.products.items;
