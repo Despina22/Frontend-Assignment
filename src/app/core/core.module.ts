@@ -6,9 +6,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
+const COMPONENTS = [HeaderComponent, FooterComponent, PageNotFoundComponent];
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent],
+  declarations: [...COMPONENTS],
   imports: [
     CommonModule,
     RouterModule,
@@ -16,6 +18,6 @@ import { FooterComponent } from './components/footer/footer.component';
     MatIconModule,
     MatButtonModule,
   ],
-  exports: [HeaderComponent, FooterComponent],
+  exports: [...COMPONENTS],
 })
 export class CoreModule {}

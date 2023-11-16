@@ -1,0 +1,20 @@
+.wrapper {
+  .back-btn {
+    background-color: #223532;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 30px;
+    border: 1px solid #223532;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 400;
+    cursor: pointer;
+    margin: 20px;
+  }
+  width: 100vw;
+  height: calc(100vh - 140px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
