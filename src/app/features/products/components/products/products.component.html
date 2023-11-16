@@ -4,5 +4,16 @@
     <app-filter-products></app-filter-products>
   </div>
   <h1 class="products-header">Products we are proud of</h1>
-  <app-product-card></app-product-card>
+  <div class="product-cards">
+    <app-product-card
+      *ngFor="let product of products"
+      [product]="product"
+    ></app-product-card>
+  </div>
+  <app-pagination
+    [totalItems]="totalItems"
+    [itemsPerPage]="itemsPerPage"
+    [pageIndex]="page"
+    (pageChanged)="onPageChange($event)"
+  ></app-pagination>
 </div>

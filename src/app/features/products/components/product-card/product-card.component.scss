@@ -1,10 +1,6 @@
 @import "../../../../../assets/styles/variables";
 
 :host {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-
   .wrapper {
     max-width: 400px;
     background-color: $white-color;
@@ -73,7 +69,7 @@
   }
 
   @media only screen and (max-width: 576px) {
-    .product-card {
+    .wrapper {
       max-width: 250px;
 
       .product-card-header {
@@ -87,6 +83,19 @@
       .product-img {
         max-width: 220px;
         max-height: 260px;
+      }
+
+      .card-content {
+        height: 200px;
+      }
+
+      .btn-wrapper {
+        margin-bottom: 5px;
+
+        .btn {
+          font-size: 14px;
+          padding: 10px 20px;
+        }
       }
     }
   }

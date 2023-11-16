@@ -10,11 +10,14 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { PaginationComponent } from './components/pagination/pagination.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 const COMPONENTS = [
   SortProductsComponent,
   TruncatePipe,
   FilterProductsComponent,
+  PaginationComponent,
 ];
 @NgModule({
   declarations: [...COMPONENTS, ConfirmDialogComponent],
@@ -26,6 +29,7 @@ const COMPONENTS = [
     MatButtonModule,
     MatInputModule,
     MatIconModule,
+    MatPaginatorModule,
   ],
   exports: [...COMPONENTS],
 })

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActiveOrderService } from 'src/app/features/services/active-order.service';
 import { ActiveOrder } from '../../models/active-order.interface';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-order-details',
@@ -17,7 +18,7 @@ export class OrderDetailsComponent implements OnInit {
   }
 
   private getActiveOrder(): void {
-    this.activeOrderService.activeOrder$.subscribe((order) => {
+    this.activeOrderService.activeOrder$.pipe(take(1)).subscribe((order) => {
       this.activeOrder = order;
     });
   }

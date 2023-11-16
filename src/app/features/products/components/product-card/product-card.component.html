@@ -1,4 +1,4 @@
-<mat-card class="wrapper" *ngFor="let product of products">
+<mat-card class="wrapper">
   <mat-card-header class="product-card-header">
     <mat-card-title
       class="product-card-title"
@@ -10,16 +10,16 @@
 
   <img
     routerLink="product/{{ product.id }}"
-    [src]="product.assets[0].preview"
+    [src]="productImageLink"
     [alt]="product.name"
     class="product-img"
   />
 
   <mat-card-content class="card-content">
-    <p>
+    <p class="description">
       {{ product.description | truncate : 200 }}
     </p>
-    <p>{{ product.createdAt | date : "yyyy" }}</p>
+    <p>Created at: {{ product.createdAt | date : "yyyy" }}</p>
   </mat-card-content>
 
   <mat-card-actions class="btn-wrapper">

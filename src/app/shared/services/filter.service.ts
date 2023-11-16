@@ -15,4 +15,8 @@ export class FilterService {
   getNameFilter(): BehaviorSubject<string> {
     return this.nameFilterSubject;
   }
+
+  clearNameFilter(): void {
+    this.nameFilterSubject.next('');
+  }
 }

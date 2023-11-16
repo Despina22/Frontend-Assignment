@@ -3,6 +3,7 @@ import { ApolloTestingModule } from 'apollo-angular/testing';
 import { FilterService } from 'src/app/shared/services/filter.service';
 import { SortService } from 'src/app/shared/services/sort.service';
 import { ProductsService } from './products.service';
+import { take } from 'rxjs';
 
 describe('ProductsService', () => {
   let service: ProductsService;

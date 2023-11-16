@@ -5,7 +5,7 @@ import { GET_PRODUCTS, GET_PRODUCT_DETAILS } from 'src/app/qraphql.operations';
 import { FilterService } from 'src/app/shared/services/filter.service';
 import { SortService } from 'src/app/shared/services/sort.service';
 import { ProductDetails } from '../products/models/product-details';
-import { Product } from '../products/models/product.interface';
+import { Product, ProductList } from '../products/models/product.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -17,21 +17,24 @@ export class ProductsService {
     private filterService: FilterService
   ) {}
 
-  getAllProducts(): Observable<Product[]> {
+  getAllProducts(
+    itemsPerPage: number,
+    pageIndex: number
+  ): Observable<ProductList> {
     return this.filterService.getNameFilter().pipe(
       switchMap((filter) =>
         this.sortService.sortOption$.pipe(
           switchMap(
             (sortOption) =>
-              this.apollo.watchQuery<Product[]>({
+              this.apollo.watchQuery<ProductList>({
                 query: GET_PRODUCTS,
                 variables: {
                   options: {
                     sort: {
                       [sortOption]: 'ASC',
                     },
-                    take: 8,
-                    skip: 0,
+                    take: itemsPerPage,
+                    skip: pageIndex * itemsPerPage,
                     filter: {
                       name: {
                         contains: filter,

@@ -13,4 +13,11 @@
     margin: 10px 65px 10px;
     font-weight: 400;
   }
+
+  .product-cards {
+    max-width: 80vw;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
 }

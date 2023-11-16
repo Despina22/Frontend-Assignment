@@ -9,7 +9,7 @@ import { ProductDetailsComponent } from './products/components/product-details/p
 import { OrderDetailsComponent } from './orders/components/order-details/order-details.component';
 import { FeaturesRoutingModule } from './features-routing.module';
 import { RouterModule } from '@angular/router';
-import { MaterialFeaturesModule } from './module/material-features.module';
+import { MaterialFeaturesModule } from './material/material-features.module';
 
 const COMPONENTS = [
   ProductCardComponent,

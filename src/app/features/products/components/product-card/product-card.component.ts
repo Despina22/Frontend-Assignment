@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductsService } from 'src/app/features/services/products.service';
-import { SortService } from 'src/app/shared/services/sort.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../../models/product.interface';
 
 @Component({
@@ -9,27 +7,12 @@ import { Product } from '../../models/product.interface';
   styleUrls: ['./product-card.component.scss'],
 })
 export class ProductCardComponent implements OnInit {
-  products!: Product[];
-
-  constructor(
-    private productsService: ProductsService,
-    private sortService: SortService
-  ) {}
+  @Input() product!: Product;
+  public productImageLink: string = '';
 
   ngOnInit(): void {
-    this.getProducts();
-    this.updateProducts();
-  }
-
-  private getProducts(): void {
-    this.productsService.getAllProducts().subscribe((data: any) => {
-      this.products = data.products.items;
-    });
-  }
-
-  private updateProducts(): void {
-    this.sortService.sortOption$.subscribe(() => {
-      this.getProducts();
-    });
+    if (this.product && this.product.assets.length > 0) {
+      this.productImageLink = this.product.assets[0].preview;
+    }
   }
 }

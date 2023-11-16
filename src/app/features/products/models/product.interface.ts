@@ -1,3 +1,8 @@
+export interface ProductList {
+  items: Product[];
+  totalItems: number;
+}
+
 export interface Product {
   id: string;
   createdAt: Date;
@@ -8,6 +13,6 @@ export interface Product {
   assets: Assets[];
 }
 
-export interface Assets {
+interface Assets {
   preview: string;
 }
