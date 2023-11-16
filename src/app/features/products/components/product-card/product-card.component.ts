@@ -11,6 +11,10 @@ export class ProductCardComponent implements OnInit {
   public productImageLink: string = '';
 
   ngOnInit(): void {
+    this.checkAssets();
+  }
+
+  checkAssets(): void {
     if (this.product && this.product.assets.length > 0) {
       this.productImageLink = this.product.assets[0].preview;
     }

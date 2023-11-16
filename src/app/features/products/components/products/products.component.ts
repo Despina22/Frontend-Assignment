@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Subject, debounceTime, take, takeUntil } from 'rxjs';
+import { Subject, debounceTime, takeUntil } from 'rxjs';
 import { ProductsService } from 'src/app/features/services/products.service';
-import { SortService } from 'src/app/shared/services/sort.service';
-import { Product, ProductList } from '../../models/product.interface';
 import { FilterService } from 'src/app/shared/services/filter.service';
+import { SortService } from 'src/app/shared/services/sort.service';
+import { Product } from '../../models/product.interface';
 
 @Component({
   selector: 'app-products',

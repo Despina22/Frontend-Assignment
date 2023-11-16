@@ -1,17 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
 import { SortProductsComponent } from './components/sort-products/sort-products.component';
 import { TruncatePipe } from './pipes/truncate.pipe';
 import { FilterProductsComponent } from './components/filter-products/filter-products.component';
 import { FormsModule } from '@angular/forms';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
 import { PaginationComponent } from './components/pagination/pagination.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { MaterialSharedModule } from './material-shared/material-shared.module';
 
 const COMPONENTS = [
   SortProductsComponent,
@@ -21,16 +16,7 @@ const COMPONENTS = [
 ];
 @NgModule({
   declarations: [...COMPONENTS, ConfirmDialogComponent],
-  imports: [
-    CommonModule,
-    MatSelectModule,
-    MatFormFieldModule,
-    FormsModule,
-    MatButtonModule,
-    MatInputModule,
-    MatIconModule,
-    MatPaginatorModule,
-  ],
+  imports: [CommonModule, FormsModule, MaterialSharedModule],
   exports: [...COMPONENTS],
 })
 export class SharedModule {}

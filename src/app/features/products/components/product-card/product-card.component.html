@@ -19,7 +19,7 @@
     <p class="description">
       {{ product.description | truncate : 200 }}
     </p>
-    <p>Created at: {{ product.createdAt | date : "yyyy" }}</p>
+    <p>Created at: {{ product.createdAt | date : "d/M/yy" }}</p>
   </mat-card-content>
 
   <mat-card-actions class="btn-wrapper">

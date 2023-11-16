@@ -6,13 +6,9 @@ import {
   ADD_ITEM_TO_ORDER,
   GET_ACTIVE_ORDER,
 } from 'src/app/qraphql.operations';
-import { Product } from '../products/models/product.interface';
-import { ActiveOrderService } from './active-order.service';
 import { ActiveOrder } from '../orders/models/active-order.interface';
-
-interface AddItemToOrderResponse {
-  addItemToOrder: Product;
-}
+import { AddItemToOrder } from '../orders/models/add-item-to-order.interface';
+import { ActiveOrderService } from './active-order.service';
 
 @Injectable({
   providedIn: 'root',
@@ -26,9 +22,9 @@ export class OrdersService {
   addItemToOrder(
     productVariantId: string,
     quantity: number
-  ): Observable<MutationResult<AddItemToOrderResponse>> {
+  ): Observable<MutationResult<AddItemToOrder>> {
     return this.apollo
-      .mutate<AddItemToOrderResponse>({
+      .mutate<AddItemToOrder>({
         mutation: ADD_ITEM_TO_ORDER,
         variables: {
           productVariantId,
